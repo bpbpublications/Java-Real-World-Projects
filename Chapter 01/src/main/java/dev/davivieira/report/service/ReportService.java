@@ -37,7 +37,7 @@ public class ReportService {
         } catch (ReportGenerationException | IOException e) {
             logger.log(Level.SEVERE, "Failure to generate e", e.getStackTrace());
         }
-        logger.log(Level.SEVERE, "Report generated with success");
+        logger.log(Level.INFO, "Report generated with success");
     }
 
     private Map<Organization, Set<Person>> generateReportData() throws ReportGenerationException {
