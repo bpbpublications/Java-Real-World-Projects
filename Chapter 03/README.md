@@ -1,7 +1,7 @@
-# Chapter 02 - Exploring Modern Java Features
+# Chapter 03 - Handling relational databases with Java
 Following are the instructions to test the code samples.
 
-You need to run these commands from within the chapter 02 directory:
+You need to run these commands from within the chapter 03 directory:
 
 **To generate generate a JAR file**
 ```
@@ -10,5 +10,5 @@ $ mvn clean package
 
 **To execute the application**
 ```
-$ java --enable-preview -jar target/chapter02-1.0-SNAPSHOT.jar  
+$ java --enable-preview -jar target/chapter03-1.0-SNAPSHOT-jar-with-dependencies.jar  
 ``` 
