@@ -3,7 +3,7 @@ Following are the instructions to test the code samples.
 
 You need to run these commands from within the chapter 02 directory:
 
-**To generate generate a JAR file**
+**To generate a JAR file**
 ```
 $ mvn clean package
 ```

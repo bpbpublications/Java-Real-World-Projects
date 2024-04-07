@@ -8,12 +8,12 @@ You need to run these commands from within the chapter 04 directory:
 $ mvn test
 ```
 
-**To run unit tests**
+**To run integration tests**
 ```
 $ mvn integration-test
 ```
 
-**To generate generate a JAR file**
+**To generate a JAR file**
 ```
 $ mvn clean package
 ```
