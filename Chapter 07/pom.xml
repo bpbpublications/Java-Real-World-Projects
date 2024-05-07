@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>dev.davivieiera</groupId>
+    <artifactId>chapter07</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <!-- code omitted -->
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <jakartaee-api.version>10.0.0</jakartaee-api.version>
+        <payara.version>6.2024.1</payara.version>
+        <compiler-plugin.version>3.11.0</compiler-plugin.version>
+        <war-plugin.version>3.4.0</war-plugin.version>
+        <cargo.version>1.10.11</cargo.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>10.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>6.1</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.microprofile-ext.openapi-ext</groupId>
+            <artifactId>openapi-ui</artifactId>
+            <version>2.0.0</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+
+        <build>
+            <finalName>license-management</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${compiler-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${war-plugin.version}</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+
+                <!-- Execute 'mvn clean package cargo:run' to run the application. -->
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven3-plugin</artifactId>
+                    <version>${cargo.version}</version>
+                    <configuration>
+                        <container>
+                            <containerId>payara</containerId>
+                            <artifactInstaller>
+                                <groupId>fish.payara.distributions</groupId>
+                                <artifactId>payara</artifactId>
+                                <version>${payara.version}</version>
+                            </artifactInstaller>
+                        </container>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+
+</project>
