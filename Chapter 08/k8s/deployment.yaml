@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-spring-boot-app
+  labels:
+    app: sample-spring-boot-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: sample-spring-boot-app
+    spec:
+      initContainers:
+        - name: sample-spring-boot-app-mysql-init
+          image: busybox
+          command: [ 'sh', '-c', 'until nc -zv sample-spring-boot-app-mysql.default.svc.cluster.local 3306; do echo waiting for sample-spring-boot-app-mysql.default.svc.cluster.local; sleep 5; done;' ]
+      containers:
+        - name: sample-spring-boot-app
+          image: s4intlaurent/sample-spring-boot-app:1.0
+          envFrom:
+          - configMapRef:
+              name: sample-spring-boot-app
+          - secretRef:
+              name: sample-spring-boot-app
+          ports:
+            - containerPort: 8080

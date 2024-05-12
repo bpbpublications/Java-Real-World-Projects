@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-spring-boot-app
+data:
+  DATABASE_URL: "mysql://sample-spring-boot-app-mysql:3306/test"
+  DATABASE_DRIVER: "com.mysql.cj.jdbc.Driver"
+  DATABASE_DIALECT: "org.hibernate.dialect.MySQL8Dialect"

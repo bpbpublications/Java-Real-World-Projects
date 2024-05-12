@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-spring-boot-app-mysql
+  labels:
+    app: sample-spring-boot-app-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-spring-boot-app-mysql
+  template:
+    metadata:
+      labels:
+        app: sample-spring-boot-app-mysql
+    spec:
+      containers:
+        - name: sample-spring-boot-app-mysql
+          image: mysql:latest
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "pass"
+            - name: MYSQL_DATABASE
+              value: "test"
+          ports:
+            - containerPort: 3306
