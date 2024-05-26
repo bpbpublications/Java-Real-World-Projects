@@ -1,0 +1,78 @@
+version: '3.8'
+services:
+
+  fluentd:
+    build: ./fluentd
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    links:
+      - "elasticsearch"
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+
+  inventory-service:
+    build: inventory-service/
+    ports:
+      - "8080"
+    links:
+      - fluentd
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: inventory.service
+
+  report-service:
+    environment:
+      - INVENTORY_BASE_URL=http://inventory-service:8080
+    build: report-service/
+    ports:
+      - "9090:9090"
+    links:
+      - fluentd
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: report.service
+
+  jaeger-service:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "14250"
+
+  collector:
+    image: otel/opentelemetry-collector:0.72.0
+    command: [ "--config=/etc/otel-collector-config.yml" ]
+    volumes:
+      - ./otel-config.yml:/etc/otel-collector-config.yml
+    ports:
+      - "4317:4317"
+    depends_on:
+      - jaeger-service
+
+  elasticsearch:
+    image: elasticsearch:8.13.4
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    expose:
+      - "9200"
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: kibana:8.13.4
+    environment:
+      - XPACK_SECURITY_ENABLED=false
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - INTERACTIVESETUP_ENABLED=false
+    links:
+      - "elasticsearch"
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
