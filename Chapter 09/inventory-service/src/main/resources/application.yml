@@ -11,9 +11,3 @@ spring:
       exporter:
         otlp:
           endpoint: http://collector:4317
-    trace-id128: true
-    supports-join: false
-
-logging:
-  pattern:
-    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
