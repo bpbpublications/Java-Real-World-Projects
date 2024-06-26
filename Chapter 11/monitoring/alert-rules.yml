@@ -1,0 +1,12 @@
+# Alert for high error rate in the Sock Shop.
+groups:
+  - name: File Upload
+    rules:
+      - alert: HighUploadResponseTime
+        expr: sum (rate(file_upload_duration_seconds_sum[1m])) / sum (rate(file_upload_duration_seconds_count[1m])) > 2
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "File upload response time"
+          description: "Time to upload a file: {{ $value }}"

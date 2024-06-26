@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+
+  alertmanager:
+    image: prom/alertmanager:v0.27.0
+    network_mode: host
+    volumes:
+      - ./monitoring/alertmanager.yml:/etc/alertmanager/config.yml
+
+  prometheus:
+    image: prom/prometheus:v2.45.6
+    network_mode: host
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./monitoring/alert-rules.yml:/etc/prometheus/alert-rules.yml
+    depends_on:
+      - alertmanager
+
+  grafana:
+    image: grafana/grafana:10.4.4
+    network_mode: host
+    depends_on:
+      - prometheus
