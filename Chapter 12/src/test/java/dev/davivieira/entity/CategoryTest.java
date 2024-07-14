@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CategoryTest {
 
     @Test
-    public void Given_an_account_a_category() {
+    public void Given_an_account_exists_create_a_category() {
         var name = "testAccount";
         var category = "testCategory";
         var account = createAccount(name);
