@@ -29,7 +29,7 @@ public class TransactionTest {
     }
 
     @Test
-    public void Given_an_category_create_a_credit_transaction() {
+    public void Given_a_category_create_a_credit_transaction() {
         var account = createAccount("testAccount");
         var category = Category.createCategory(account, "testCategory");
         var transaction = Transaction.createTransaction(account, "testTransaction", 10.0, Type.CREDIT);
