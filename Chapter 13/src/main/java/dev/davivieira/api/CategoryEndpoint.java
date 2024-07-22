@@ -15,11 +15,10 @@ import java.util.List;
 
 @RestController
 public class CategoryEndpoint {
-    private final CategoryService categoryService;
 
+    private final CategoryService categoryService;
     private final CategoryRepository categoryRepository;
     private final AccountRepository accountRepository;
-
 
     @Autowired
     private CategoryEndpoint(CategoryService categoryService,

@@ -29,18 +29,18 @@ public class CategoryService {
         accountRepository.save(account);
     }
 
-    private void validateCategory(Account account, Category category) throws Exception {
-        var categories = account.getCategories();
-        if(categories.contains(category)) {
-            throw new Exception("Category already exists in this account");
-        }
-    }
-
     private Category getCategory(CategoryPayload categoryPayload) {
         return Category.builder()
                 .name(categoryPayload.getName())
                 .id(categoryPayload.getId())
                 .transactions(List.of())
                 .build();
+    }
+
+    private void validateCategory(Account account, Category category) throws Exception {
+        var categories = account.getCategories();
+        if(categories.contains(category)) {
+            throw new Exception("Category already exists in this account");
+        }
     }
 }

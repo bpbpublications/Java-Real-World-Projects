@@ -15,11 +15,8 @@ import java.util.List;
 public class TransactionEndpoint {
 
     private final TransactionService transactionService;
-
     private final TransactionRepository transactionRepository;
-
     private final AccountRepository accountRepository;
-
     private final CategoryRepository categoryRepository;
 
 
