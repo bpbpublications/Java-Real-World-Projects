@@ -15,18 +15,18 @@ $ java -jar target/chapter13-1.0-SNAPSHOT.jar
 
 **Create a new account**
 ```
-$ curl -XPOST  localhost:8080/account -H 'Content-type:application/json' -d '{"email": "john.doe@davivieira.dev", "password": "pass"}'
+$ curl -XPOST localhost:8080/account -H 'Content-type:application/json' -d '{"email": "john.doe@davivieira.dev", "password": "pass"}'
 ```
 
 **Create categories**
 ```
-$ curl -XPOST  localhost:8080/category -H 'Content-type:application/json' -d '{"accountId": "{ACCOUNT_ID}", "name": "Grocery"}'
-$ curl -XPOST  localhost:8080/category -H 'Content-type:application/json' -d '{"accountId": "{ACCOUNT_ID}", "name": "Fitness"}'
+$ curl -XPOST localhost:8080/category -H 'Content-type:application/json' -d '{"accountId": "{ACCOUNT_ID}", "name": "Grocery"}'
+$ curl -XPOST localhost:8080/category -H 'Content-type:application/json' -d '{"accountId": "{ACCOUNT_ID}", "name": "Fitness"}'
 ```
 
 **Create a new transaction**
 ```
-$ curl -XPOST  localhost:8080/transaction -H 'Content-type:application/json' -d '{"accountId": "{ACCOUNT_ID}", "name": "Super Market", "amount": 16.20, "type": "DEBIT"}'
+$ curl -XPOST localhost:8080/transaction -H 'Content-type:application/json' -d '{"accountId": "{ACCOUNT_ID}", "name": "Super Market", "amount": 16.20, "type": "DEBIT"}'
 ```
 
 **Get account details**
