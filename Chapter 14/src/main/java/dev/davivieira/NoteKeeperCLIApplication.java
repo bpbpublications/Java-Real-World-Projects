@@ -24,7 +24,7 @@ public class NoteKeeperCLIApplication implements CommandLineRunner {
         Scanner scanner = new Scanner(System.in);
         switch (operation) {
             case "createNote" ->noteCLIAdapter.createNote(scanner);
-            case "getNotes" -> noteCLIAdapter.printNotes();
+            case "printNotes" -> noteCLIAdapter.printNotes();
             default -> throw new InvalidParameterException("The supported operations are: createNote and getNotes");
         }
     }

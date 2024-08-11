@@ -6,7 +6,6 @@ import lombok.Getter;
 public class Title {
 
     private final String name;
-
     private static final int MAX_TITLE_CHARACTERS = 120;
 
     private Title(String name) {

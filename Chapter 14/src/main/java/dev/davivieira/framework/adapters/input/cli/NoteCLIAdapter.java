@@ -19,7 +19,7 @@ public class NoteCLIAdapter {
     public NoteCLIAdapter(NoteUseCase noteUseCase){
         this.noteUseCase = noteUseCase;
     }
-    public String createNote(Object requestParams) {
+    public String createNote(Scanner requestParams) {
         var noteParams = stdinParams(requestParams);
         var title = noteParams.get("title");
         var content = noteParams.get("content");
@@ -27,16 +27,14 @@ public class NoteCLIAdapter {
         return "Note created with success";
     }
 
-    private Map<String, String> stdinParams(Object requestParams){
+    private Map<String, String> stdinParams(Scanner requestParams){
         Map<String, String> params = new HashMap<>();
-        if(requestParams instanceof Scanner scanner){
-            System.out.println("Provide the note title:");
-            var title = scanner.nextLine();
-            params.put("title", title);
-            System.out.println("Provide the note content:");
-            var content = scanner.nextLine();
-            params.put("content", content);
-        }
+        System.out.println("Provide the note title:");
+        var title = requestParams.nextLine();
+        params.put("title", title);
+        System.out.println("Provide the note content:");
+        var content = requestParams.nextLine();
+        params.put("content", content);
         return params;
     }
 
