@@ -10,5 +10,5 @@ $ mvn clean package
 
 **To execute the application**
 ```
-$ java --enable-preview -jar target/chapter02-1.0-SNAPSHOT.jar  
+$ java -jar target/chapter02-1.0-SNAPSHOT.jar  
 ``` 

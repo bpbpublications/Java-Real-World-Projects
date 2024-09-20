@@ -18,20 +18,18 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static java.lang.StringTemplate.STR;
-
 public class FileConverterService {
 
     private static final Logger logger = Logger.getLogger(FileConverterService.class.getName());
 
     public void convertFile(String fileUrl, Type conversionType) throws Exception {
-        logger.log(Level.INFO, STR."Downloading file from \{fileUrl}");
+        logger.log(Level.INFO, "Downloading file from "+fileUrl);
         var file = downloadFileInAVirtualThread(fileUrl);
-        logger.log(Level.INFO, STR."The \{file} has been sucessfully downloaded");
+        logger.log(Level.INFO, "The "+file+" has been sucessfully downloaded");
 
-        logger.log(Level.INFO, STR."Converting \{file} to \{conversionType}");
+        logger.log(Level.INFO, "Converting "+file+" to "+conversionType);
         var convertedFile = file.convertTo(conversionType);
-        logger.log(Level.INFO, STR."Conversion to \{conversionType} was successfull! \nThe converted file is called \{convertedFile} \n");
+        logger.log(Level.INFO, "Conversion to "+conversionType+" was successfull! \nThe converted file is called "+convertedFile+" \n");
     }
 
      private RemoteFile downloadFileInAVirtualThread(String url) throws Exception {

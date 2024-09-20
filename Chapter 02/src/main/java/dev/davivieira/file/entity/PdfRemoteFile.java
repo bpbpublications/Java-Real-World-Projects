@@ -25,7 +25,7 @@ public final class PdfRemoteFile extends RemoteFile {
 
     private RemoteFile toWord() {
         var wordSuffix = "word.docx";
-        var name = STR."converted-from-\{namePrefix}-to-\{wordSuffix}";
+        var name = "converted-from-"+namePrefix+"-to-"+wordSuffix;
         return new WordRemoteFile(this.content, name);
     }
 }

@@ -28,13 +28,13 @@ public final class WordRemoteFile extends RemoteFile {
 
     private RemoteFile toPdf() {
         var pdfSuffix = "pdf.pdf";
-        var name = STR."converted-from-\{namePrefix}-to-\{pdfSuffix}";
+        var name = "converted-from-"+namePrefix+"-to-"+pdfSuffix;
         return new PdfRemoteFile(this.content, name);
     }
 
     private RemoteFile toExcel() {
         var excelSuffix = "excel.xlsx";
-        var name = STR."converted-from-\{namePrefix}-to-\{excelSuffix}";
+        var name = "converted-from-"+namePrefix+"-to-"+excelSuffix;
         return new ExcelRemoteFile(this.content, name);
     }
 }
