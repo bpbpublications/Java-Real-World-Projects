@@ -34,6 +34,6 @@ public class User {
 
     @Override
     public String toString() {
-        return STR."User{email='\{email}\{'\''}, name='\{name}\{'\''}, groups=\{groups}\{'}'}";
+        return "User{" + "email='" + email + '\'' + ", name='" + name + '\'' + ", groups=" + groups + '}';
     }
 }

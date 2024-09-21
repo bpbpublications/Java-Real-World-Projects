@@ -27,6 +27,6 @@ public class Membership {
 
     @Override
     public String toString() {
-        return STR."Membership{id=\{id}, user=\{user}, group=\{group}\{'}'}";
+        return "Membership{" + "user=" + user + ", group=" + group + '}';
     }
 }
