@@ -10,5 +10,5 @@ $ mvn clean package
 
 **To execute the application**
 ```
-$ java --enable-preview -jar target/chapter03-1.0-SNAPSHOT-jar-with-dependencies.jar  
+$ java -jar target/chapter03-1.0-SNAPSHOT-jar-with-dependencies.jar  
 ``` 
