@@ -21,6 +21,6 @@ $ mvn clean package
 **To execute the application**
 ```
 $ docker-compose up -d
-$ java --enable-preview -jar target/chapter04-1.0-SNAPSHOT-jar-with-dependencies.jar  
+$ java -jar target/chapter04-1.0-SNAPSHOT-jar-with-dependencies.jar  
 
 ```

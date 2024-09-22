@@ -52,6 +52,12 @@ public class AccountData {
 
     @Override
     public String toString() {
-        return STR."AccountData{email='\{email}\{'\''}, password='\{password}\{'\''}, birthDate=\{birthDate}, creationTimestamp=\{creationTimestamp}, status='\{status}\{'\''}\{'}'}";
+        return "AccountData{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", creationTimestamp=" + creationTimestamp +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
