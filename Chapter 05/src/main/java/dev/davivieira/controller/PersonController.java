@@ -18,7 +18,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping("/persons")
+    @GetMapping("/person")
     private List<Person> all() {
         return personService.getAllPersons();
     }
