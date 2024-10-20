@@ -37,7 +37,7 @@ public class ReportEndpoint {
 
     private List<String> getInventoryItems() {
         LOGGER.info("Getting inventory items");
-        ResponseEntity<String[]> response = restTemplate.getForEntity(baseUrl + "/inventory/all", String[].class);
+        ResponseEntity<String[]> response = restTemplate.getForEntity(baseUrl + "/inventory", String[].class);
         return List.of(Objects.requireNonNull(response.getBody()));
     }
 }

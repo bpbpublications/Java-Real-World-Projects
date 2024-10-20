@@ -14,7 +14,7 @@ public class InventoryEndpoint {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InventoryEndpoint.class);
 
-    @GetMapping(path = "/all")
+    @GetMapping
     public List<String> getAllInventory() {
         LOGGER.info("Getting all inventory items");
         return List.of("Inventory Item 1", "Inventory Item 2", "Inventory Item 3");
