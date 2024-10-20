@@ -15,7 +15,7 @@ http://localhost:8080/license-management/api/openapi-ui/
 
 **Health Check URL**
 ```
-http://casanova:8080/health
+http://localhost:8080/health
 ```
 
 **To create a new license**

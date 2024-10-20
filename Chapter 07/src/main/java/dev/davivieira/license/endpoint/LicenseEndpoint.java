@@ -36,7 +36,6 @@ public class LicenseEndpoint {
         licenseService.createLicense(license);
     }
 
-    @Path("/all")
     @GET
     @Operation(summary = "It retrieves all licenses", description = "It returns all non-expired and expired licenses")
     @APIResponses(value = {
