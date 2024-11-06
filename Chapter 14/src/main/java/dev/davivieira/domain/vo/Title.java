@@ -10,7 +10,7 @@ public class Title {
 
     private Title(String name) {
         if (name.length() > MAX_TITLE_CHARACTERS) {
-            throw new IllegalArgumentException(STR."Title name exceeds maximum character limit \{MAX_TITLE_CHARACTERS}");
+            throw new IllegalArgumentException("Title name exceeds maximum character limit "+MAX_TITLE_CHARACTERS);
         }
         this.name = name;
     }

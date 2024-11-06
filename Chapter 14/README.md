@@ -10,17 +10,17 @@ $ mvn clean package
 
 **To create a note using the CLI adapter**
 ```
-$ java -jar --enable-preview -Dspring.main.web-application-type=NONE target/chapter14-1.0-SNAPSHOT.jar createNote
+$ java -jar -Dspring.main.web-application-type=NONE target/chapter14-1.0-SNAPSHOT.jar createNote
 ```
 
 **To show notes using the CLI adapter**
 ```
-$ java -jar --enable-preview -Dspring.main.web-application-type=NONE target/chapter14-1.0-SNAPSHOT.jar showNotes
+$ java -jar -Dspring.main.web-application-type=NONE target/chapter14-1.0-SNAPSHOT.jar showNotes
 ```
 
 **To start the application using the REST adapter**
 ```
-$ java -jar --enable-preview target/chapter14-1.0-SNAPSHOT.jar
+$ java -jar target/chapter14-1.0-SNAPSHOT.jar
 ```
 
 **To create a note using the REST adapter**
