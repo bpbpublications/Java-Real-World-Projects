@@ -40,7 +40,7 @@ public class FileController {
 
     @GetMapping("/file/{id}")
     private ResponseEntity<Resource> downloadFile(@PathVariable String id) throws NoSuchAlgorithmException, IOException {
-        incrementRequestCounter(HttpMethod.GET.name(), STR."/file/\{id}");
+        incrementRequestCounter(HttpMethod.GET.name(), "/file/"+id);
 
         var file = fileService.downloadFile(id);
 
@@ -48,7 +48,7 @@ public class FileController {
             return ResponseEntity.notFound().build();
         }
 
-        var filename = STR."\{Long.toHexString(Double.doubleToLongBits(Math.random()))}-\{file.get().getName()}";
+        var filename = Long.toHexString(Double.doubleToLongBits(Math.random()))+"-"+file.get().getName();
         var content = addRandomByteContent(file.get().getContent());
         var resource = new ByteArrayResource(content);
 

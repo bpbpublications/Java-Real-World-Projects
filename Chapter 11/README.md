@@ -10,7 +10,7 @@ $ mvn clean package
 
 **To execute the application**
 ```
-$ java --enable-preview -jar target/chapter11-1.0-SNAPSHOT.jar   
+$ java -jar target/chapter11-1.0-SNAPSHOT.jar   
 ```
 
 **To bring up Alertmanager, Prometheus, and Grafana**

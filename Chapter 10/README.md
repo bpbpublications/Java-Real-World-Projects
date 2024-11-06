@@ -10,7 +10,7 @@ $ mvn clean package
 
 **To execute the application**
 ```
-$ java --enable-preview -jar target/chapter10-1.0-SNAPSHOT.jar   
+$ java -jar target/chapter10-1.0-SNAPSHOT.jar   
 ```
 
 **To upload a file**

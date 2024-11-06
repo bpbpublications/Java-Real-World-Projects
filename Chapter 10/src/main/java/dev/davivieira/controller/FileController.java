@@ -36,7 +36,7 @@ public class FileController {
 
     @GetMapping("/file/{id}")
     private ResponseEntity<Resource> downloadFile(@PathVariable String id) {
-        incrementRequestCounter(HttpMethod.GET.name(), STR."/file/\{id}");
+        incrementRequestCounter(HttpMethod.GET.name(), "/file/"+id);
 
         var file = fileService.downloadFile(id);
 
