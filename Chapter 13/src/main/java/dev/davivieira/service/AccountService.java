@@ -36,5 +36,9 @@ public class AccountService {
         if (!Pattern.matches("^(.+)@(\\S+)$", accountPayload.getEmail())) {
             throw new Exception("Email format name is invalid.");
         }
+        if (accountRepository.findByEmail(accountPayload.getEmail()).isPresent()) {
+            throw new Exception("Email provided already exists.");
+        }
     }
+
 }

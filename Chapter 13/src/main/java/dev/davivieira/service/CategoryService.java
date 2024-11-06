@@ -21,11 +21,8 @@ public class CategoryService {
 
     public void createCategory(Account account, CategoryPayload categoryPayload) throws Exception {
         var category = getCategory(categoryPayload);
-        var categories = account.getCategories();
-
         validateCategory(account, category);
-
-        categories.add(category);
+        account.getCategories().add(category);
         accountRepository.save(account);
     }
 

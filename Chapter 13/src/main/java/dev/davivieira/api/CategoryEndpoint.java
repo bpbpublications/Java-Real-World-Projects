@@ -31,13 +31,13 @@ public class CategoryEndpoint {
     }
 
     @PostMapping("/category")
-    private void createCategory(@RequestBody CategoryPayload categoryPayload) throws Exception {
+    public void createCategory(@RequestBody CategoryPayload categoryPayload) throws Exception {
         var account = accountRepository.findById(categoryPayload.getAccountId()).get();
         categoryService.createCategory(account, categoryPayload);
     }
 
     @GetMapping("/categories")
-    private List<Category> allCategories() {
+    public List<Category> allCategories() {
         return (List<Category>) categoryRepository.findAll();
     }
 }

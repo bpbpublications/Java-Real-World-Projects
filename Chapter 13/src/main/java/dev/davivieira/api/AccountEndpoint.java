@@ -21,12 +21,12 @@ public class AccountEndpoint {
     }
 
     @PostMapping("/account")
-    private Account createAccount(@RequestBody AccountPayload accountPayload) throws Exception {
+    public Account createAccount(@RequestBody AccountPayload accountPayload) throws Exception {
         return accountService.createAccount(accountPayload);
     }
 
     @GetMapping("/account/{email}")
-    private Account getAccount(@PathVariable String email) throws Exception {
+    public Account getAccount(@PathVariable String email) throws Exception {
         return accountRepository.findByEmail(email).orElseThrow(() -> new Exception("Account not found"));
     }
 }

@@ -33,13 +33,13 @@ public class TransactionEndpoint {
     }
 
     @PostMapping("/transaction")
-    private void createTransaction(@RequestBody TransactionPayload transactionPayload) throws Exception {
+    public void createTransaction(@RequestBody TransactionPayload transactionPayload) throws Exception {
         var account = accountRepository.findById(transactionPayload.getAccountId()).get();
         transactionService.createTransaction(account, transactionPayload);
     }
 
     @PutMapping("/{categoryId}/{transactionId}")
-    private void addTransactionToCategory(@PathVariable String categoryId,
+    public void addTransactionToCategory(@PathVariable String categoryId,
                                           @PathVariable String transactionId
     ) {
         var category = categoryRepository.findById(categoryId).get();
@@ -48,7 +48,7 @@ public class TransactionEndpoint {
     }
 
     @DeleteMapping("/{categoryId}/{transactionId}")
-    private void removeTransactionFromCategory(@PathVariable String categoryId,
+    public void removeTransactionFromCategory(@PathVariable String categoryId,
                                           @PathVariable String transactionId
     ) {
         var category = categoryRepository.findById(categoryId).get();
@@ -57,7 +57,7 @@ public class TransactionEndpoint {
     }
 
     @GetMapping("/transactions")
-    private List<Transaction> allTransactions() {
+    public List<Transaction> allTransactions() {
         return (List<Transaction>) transactionRepository.findAll();
     }
 }
