@@ -3,8 +3,6 @@ package dev.davivieira;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-import static java.lang.StringTemplate.STR;
-
 @Entity
 public class Account {
 
@@ -40,6 +38,9 @@ public class Account {
 
     @Override
     public String toString() {
-        return STR."Account{email='\{email}\{'\''}, password='\{password}\{'\''}\{'}'}";
+        return "Account{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
